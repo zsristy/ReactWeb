@@ -9,7 +9,8 @@ const Searchbar=(props)=>{
         <div className="input-field col s5" >
         <input type="text" placeholder="Search..." onChange={props.handleChange} />
         </div>
-        <button className="btn waves-effect waves-light pink" type="submit" name="action" style={{margin: 20}}><i>Search</i></button>
+        <button className="btn waves-effect waves-light pink" type="submit" name="action" style={{margintop: 20}}><i className="material-icons">search</i></button>
+        <button className="btn waves-effect waves-light orange" style={{margin: 20}}><i className="material-icons">swap_vert</i></button>
       </div>
     </form>
   </div>
