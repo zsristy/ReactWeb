@@ -10,6 +10,7 @@ const App=()=>{
   const [books,setbooks]=useState([]);
   const [currentPage, setCurrentPage]=useState(1);
   const [totalPages,setTotalPages]=useState(0);
+  const [sortedby,setSortedby]=useState('newest')
 
   const handleChange=(event)=>{
     setsearchedbook(event.target.value);
@@ -17,18 +18,18 @@ const App=()=>{
 
   const handleSubmit= async(event)=>{
     event.preventDefault();
-    await getBook(searchedbook,setbooks, currentPage, setTotalPages);
+    await getBook(searchedbook,setbooks, currentPage, setTotalPages,sortedby);
   }
 
   const nextPage=async(page_number)=>{
     setCurrentPage(page_number);
-    await getBook(searchedbook,setbooks, currentPage, setTotalPages);
+    await getBook(searchedbook,setbooks, currentPage, setTotalPages,sortedby);
   }
 
   return(
     <div>
       <Navigationbar/>
-      <Searchbar handleChange={handleChange} handleSubmit={handleSubmit}/>
+      <Searchbar handleChange={handleChange} handleSubmit={handleSubmit} setSortedby={setSortedby}/>
       <Booklist books={books}/>
       {totalPages>1?(<Pagination nextPage={nextPage} currentPage={currentPage} totalPages={totalPages} />):""}
     </div>
