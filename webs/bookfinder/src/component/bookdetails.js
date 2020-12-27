@@ -23,8 +23,14 @@ const Bookdetails=(props)=>{
                   <p><b>Title : </b><i>{param.title}</i></p>    
                 </div>
             </div>
+            <Link to="/"><button className="btn waves-effect waves-light pink" style={{margintop: 20 , width: 325}}>
+                      Back to Homepage....
+            </button></Link>
 
-            <Link to={{pathname:"/", 
+            {/* can't fix the pagination issue with parameters if i use the parameters as usestate variables then react dom stop compiling to restrict infinite loop. 
+            and the changes of pages and books can't be reflected without useState*/}
+
+            {/* <Link to={{pathname:"/", 
                       state:{currentPage: currentPage, 
                              books:books,
                              searchedbook: searchedbook,
@@ -32,7 +38,7 @@ const Bookdetails=(props)=>{
                              totalPages: totalPages}}}>
             <button className="btn waves-effect waves-light pink" style={{margintop: 20 , width: 325}}>
                       Back to Homepage....
-            </button></Link>
+            </button></Link> */}
         </div>
         <div className='col s6' style={{margin: 10}}>
             <div className="card col s12">
