@@ -3,6 +3,11 @@ import Navigationbar2 from './navigationbar2';
 import {Link} from 'react-router-dom'
 
 const Bookdetails=(props)=>{
+    const totalPages=props.location.state.totalPages;
+    const sortedby=props.location.state.sortedby;
+    const searchedbook=props.location.state.searchedbook;
+    const currentPage=props.location.state.currentPage;
+    const books=props.location.state.books;
     const param=props.location.state.details.volumeInfo;
     console.log(param);
     return(
@@ -18,7 +23,14 @@ const Bookdetails=(props)=>{
                   <p><b>Title : </b><i>{param.title}</i></p>    
                 </div>
             </div>
-            <Link to="/"><button className="btn waves-effect waves-light pink" style={{margintop: 20 , width: 325}}>
+
+            <Link to={{pathname:"/", 
+                      state:{currentPage: currentPage, 
+                             books:books,
+                             searchedbook: searchedbook,
+                             sortedby: sortedby,
+                             totalPages: totalPages}}}>
+            <button className="btn waves-effect waves-light pink" style={{margintop: 20 , width: 325}}>
                       Back to Homepage....
             </button></Link>
         </div>

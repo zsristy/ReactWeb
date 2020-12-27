@@ -19,7 +19,13 @@ const Bookcard=(props)=>{
       {authors!=null ? authors.map((author,i) => <p>{i+1}. { author }</p>):"Unknown"}     
     </div>
     <div className="card-action">
-      <Link to={{pathname:"/book/:id"+props.book.id, state: {details: props.book}}}>See details</Link>
+      <Link to={{pathname:"/book/:id"+props.book.id, 
+      state: {details: props.book, 
+              currentPage: props.currentPage, 
+              books: props.books,
+              searchedbook: props.searchedbook,
+              sortedby: props.sortedby,
+              totalPages: props.totalPages}}}>See details</Link>
     </div>
     </div>
 

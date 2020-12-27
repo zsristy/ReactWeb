@@ -7,7 +7,12 @@ const Booklist=(props)=>{
      <div className="col s12"> 
         {props.books.map((book,i)=>{
             //console.log(book);
-            return(<Bookcard book={book}/>)
+            return(<Bookcard book={book} 
+                             currentPage={props.currentPage} 
+                             books={props.books} 
+                             searchedbook={props.searchedbook} 
+                             sortedby={props.sortedby}
+                             totalPages={props.totalPages}/>)
         })}
      </div> 
     </div>
